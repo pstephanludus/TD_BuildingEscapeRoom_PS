@@ -11,7 +11,6 @@ UPositionReport::UPositionReport()
 	// off to improve performance if you don't need them.
 	bWantsBeginPlay = true;
 	PrimaryComponentTick.bCanEverTick = true;
-	UE_LOG(LogTemp, Warning, TEXT("Position"));
 	// ...
 }
 
@@ -25,7 +24,6 @@ void UPositionReport::BeginPlay()
 	FString ObjectPosition = GetOwner()->GetTransform().GetLocation().ToString();
 	FString ObjectRotation = GetOwner()->GetTransform().GetRotation().ToString();
 	FString ObjectScale = GetOwner()->GetTransform().GetScale3D().ToString();
-	UE_LOG(LogTemp, Warning, TEXT("%s is at %s, Rotation: %s, Scale: %s"), *Name, *ObjectPosition, *ObjectRotation, *ObjectScale);
 	
 }
 

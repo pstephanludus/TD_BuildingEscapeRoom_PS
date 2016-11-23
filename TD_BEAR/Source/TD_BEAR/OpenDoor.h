@@ -13,8 +13,19 @@ class TD_BEAR_API UOpenDoor : public UActorComponent
 private:
 	UPROPERTY(VisibleAnywhere)
 	float OpenAngle;
+
 	UPROPERTY(EditAnywhere)
 	ATriggerVolume *PressurePlate;
+
+	UPROPERTY(EditAnywhere)
+	AActor *ActorThatOpens = nullptr;
+	
+	UPROPERTY(EditAnywhere)
+	float Delay = 1.0f;
+	float LastDoorOpenTime;
+
+	AActor* Owner;
+
 
 public:	
 	// Sets default values for this component's properties
@@ -26,5 +37,9 @@ public:
 	// Called every frame
 	virtual void TickComponent( float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction ) override;
 
-	
+	// Méthode ouvrir porte
+	void OpenDoor();
+
+	// Méthode fermer porte
+	void CloseDoor();
 };
